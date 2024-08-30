@@ -100,7 +100,7 @@ li span.not {
   border-radius: 12px;
 }
 
-.todo {
+.todo, .calendar-form {
   width: 100%;
   display: flex;
 
@@ -130,16 +130,36 @@ li span.not {
   padding: 5px 10px;
   outline: none;
 }
-.todo input::placeholder {
+
+.calendar-form input {
+  --input-focus: #2f2f2f;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #323232;
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  padding: 5px 10px;
+  outline: none;
+}
+
+.todo input::placeholder, .calendar-form input::placeholder {
   color: var(--font-color-sub);
   opacity: 0.8;
 }
 
-.todo input:focus {
+.todo input:focus, .calendar-form input:focus {
   border: 2px solid var(--input-focus);
 }
 
-.todo button {
+.todo button, .calendar-form button {
   --input-focus: #2d8cf0;
   --font-color: #323232;
   --font-color-sub: #666;
@@ -351,3 +371,20 @@ li span.not {
     flex-flow: column;
   }
 }
+
+.calendar{
+  background-color: white;
+  border-radius: 0 20% 20% 0%;
+  border: 2px solid black;
+  width: 200%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+td {
+  font-size: 12px; /* Adjust the font size */
+  width: 25px; /* Adjust the width of the date box */
+  height: 25px; /* Adjust the height of the date box */
+  line-height: 25px; /* Adjust the line height to vertically center the content */
+}
+
+
