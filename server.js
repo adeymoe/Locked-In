@@ -11,7 +11,7 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
 const timerRoutes = require('./routes/timer')
-const calendarRoutes = require('./routes/calendar')
+const calendarRoutes = require('./routes/calendars')
 
 
 
@@ -47,7 +47,7 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
 app.use('/timer', timerRoutes)
-// app.use('/calendar', calendarRoutes)
+app.use('/calendar', calendarRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')

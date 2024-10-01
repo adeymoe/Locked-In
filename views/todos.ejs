@@ -80,12 +80,22 @@
             <!--CALENDAR SECTION-->
 
             <section class="calendar">
-                <form action="/calendar" method="POST" class="calendar-form">
-                    <input type="text" id="eventTitle" placeholder="Enter Event Title" name="eventTitle">
+                <form action="/calendar/createEvent" method="POST" class="calendar-form">
+                    <input type="text" id="event" placeholder="Enter Event Title" name="event">
                     <input type="date" id="eventDate" name="eventDate">
                     <button id="addEventButton" type="submit">Add Event</button> 
                 </form>
-                <div id='calendar'></div>
+
+                <ul id="sortableList">
+                     <% for(var i=0; i<calendars.length; i++) {%>
+                        <li style="margin-right: 5%;">
+                            <span> <%= calendars[i].event%></span>
+                            <span> <%= calendars[i].eventDate%></span>
+                            <span class='del'> <i class="fa-solid fa-trash-can pointer"></i> </span>
+                        </li>
+                      <% } %>
+                </ul>
+                <div id='calendar' style="margin-top: 5%; margin-bottom: 5%;"></div>
             </section>
         </div>
 

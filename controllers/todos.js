@@ -1,9 +1,11 @@
 const Todo = require("../models/Todo");
+const Calendar = require("../models/Calendar")
 
 module.exports = {
   getTodos: async (req, res) => {
     try {
       const todoItems = await Todo.find({ userId: req.user.id });
+      const calendarItems = await Calendar.find().sort({ createdAt: "desc" }).lean();
       const sortedItems = todoItems.sort((a, b) => a.order - b.order);
       const itemsLeft = await Todo.countDocuments({
         userId: req.user.id,
@@ -13,6 +15,7 @@ module.exports = {
         todos: sortedItems,
         left: itemsLeft,
         user: req.user,
+        calendars: calendarItems
       });
     } catch (err) {
       console.log(err);
